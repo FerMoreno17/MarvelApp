@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { Text, StyleSheet, Image, Pressable, Alert } from 'react-native';
+import { Text, StyleSheet, Image, Pressable } from 'react-native';
 import { Character } from '../models/characterModel';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { setCurrentCharacter } from '../redux/slices/characterSlice';
 import FavStar from './favStar.component';
+import { storageFavourite } from '../helpers/storageHelper';
 
 interface IProp {
     character: Character;
@@ -13,6 +15,7 @@ export default function CharacterCard({ character }: IProp) {
     const path = `${character.thumbnail.path}.${character.thumbnail.extension}`;
     const navigation = useNavigation();
     const dispatch = useDispatch();
+
     const styles = StyleSheet.create({
         container: {
             backgroundColor: 'white',
@@ -59,10 +62,6 @@ export default function CharacterCard({ character }: IProp) {
         navigation.navigate('DetailScreen');
     }
 
-    function handleFav() {
-        Alert.alert('touched');
-    }
-
     return (
         <Pressable onPress={handleGoToDetail} style={styles.container}>
             <Image
@@ -73,9 +72,9 @@ export default function CharacterCard({ character }: IProp) {
                 {character.name}
             </Text>
             <Pressable
-                onPress={handleFav}
+                onPress={() => storageFavourite(character.id)}
                 style={styles.starContainer}>
-                <FavStar />
+                <FavStar id={character.id} />
             </Pressable>
         </Pressable>
     );
