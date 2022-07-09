@@ -1,9 +1,11 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Character } from '../models/characterModel';
 import CharacterCard from '../components/characterCard.component';
 import usePaginator from '../hooks/usePaginator';
+import { getFavArray } from '../helpers/storageHelper';
 
 export default function HomeScreen() {
     const { characterList, loadNextPage } = usePaginator();
@@ -38,6 +40,9 @@ export default function HomeScreen() {
         },
     });
 
+    useEffect(() => {
+        getFavArray();
+    }, []);
 
     function renderPersonajeCard(item: Character) {
         return <CharacterCard character={item} />;
