@@ -10,7 +10,7 @@ type RootStackParamList = {
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList { }
   }
 }
 
@@ -18,9 +18,20 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function StackNavigation() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: '#B0130F',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:'MarvelApp'}} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} options={{title:'Description'}}/>
     </Stack.Navigator>
   );
 }

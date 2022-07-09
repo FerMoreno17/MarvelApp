@@ -20,7 +20,6 @@ export async function storageFavourite(id: number) {
         }
         AsyncStorage.setItem('@favArray', JSON.stringify(array_temp));
         store.dispatch(setFavouriteArray(array_temp));
-        console.log({ array_temp });
     }
 }
 
