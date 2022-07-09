@@ -10,18 +10,18 @@ interface FavStarProp {
 export default function FavStar({ id }: FavStarProp) {
     const [active, setActive] = useState(false);
     const { favouriteArray } = useSelector((state: RootState) => state.character);
+    const size = 25;
 
     useEffect(() => {
         setActive(favouriteArray.includes(id.toString()));
     }, [favouriteArray]);
 
-
     return (
         <>
             {
                 !active
-                    ? <Icon name="star-outline" size={30} color="grey" />
-                    : <Icon name="star" size={30} color="#FFC300" />
+                    ? <Icon name="star-outline" size={size} color="grey" />
+                    : <Icon name="star" size={size} color="#FFC300" />
             }
         </>
     );

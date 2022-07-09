@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Character } from '../models/characterModel';
 import CharacterCard from '../components/characterCard.component';
@@ -14,7 +14,7 @@ export default function HomeScreen() {
         container: {
             flex: 1,
             padding: 10,
-            backgroundColor: 'grey',
+            backgroundColor: 'black',
         },
         title: {
             fontSize: 22,
@@ -23,12 +23,8 @@ export default function HomeScreen() {
         },
         body: {
             flex: 1,
-            backgroundColor: 'orange',
-        },
-        button: {
-            padding: 10,
-            borderRadius: 5,
-            backgroundColor: 'red',
+            justifyContent:'center',
+            alignItems:'center',
         },
         label: {
             fontSize: 16,
@@ -50,7 +46,6 @@ export default function HomeScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Marvel App</Text>
             <View style={styles.body}>
                 <FlatList
                     data={characterList}

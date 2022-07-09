@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { Text, StyleSheet, Image, Pressable } from 'react-native';
+import { Text, StyleSheet, Image, Pressable, Dimensions } from 'react-native';
 import { Character } from '../models/characterModel';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
@@ -15,31 +15,34 @@ export default function CharacterCard({ character }: IProp) {
     const path = `${character.thumbnail.path}.${character.thumbnail.extension}`;
     const navigation = useNavigation();
     const dispatch = useDispatch();
+    const { width, height } = Dimensions.get('screen');
+
 
     const styles = StyleSheet.create({
         container: {
             backgroundColor: 'white',
             padding: 10,
             borderRadius: 5,
-            width: 160,
+            width: width * 0.45,
+            height: height * 0.25,
             margin: 5,
-            height: 200,
         },
         image: {
-            width: 150,
+            width: width * 0.4,
             height: 150,
             alignSelf: 'center',
         },
         name: {
             color: 'black',
             fontWeight: 'bold',
+            fontSize: 20,
         },
         starContainer: {
             position: 'absolute',
             top: 15,
-            right: 10,
+            right: 15,
             backgroundColor: 'white',
-            borderRadius: 20,
+            borderRadius: 100,
             padding: 5,
             justifyContent: 'center',
             alignItems: 'center',
@@ -73,7 +76,7 @@ export default function CharacterCard({ character }: IProp) {
             </Text>
             <Pressable
                 onPress={() => storageFavourite(character.id)}
-                style={styles.starContainer}>
+                style={[styles.starContainer, styles.shadow]}>
                 <FavStar id={character.id} />
             </Pressable>
         </Pressable>
