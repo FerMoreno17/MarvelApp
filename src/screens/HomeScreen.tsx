@@ -6,30 +6,24 @@ import { Character } from '../models/characterModel';
 import CharacterCard from '../components/characterCard.component';
 import usePaginator from '../hooks/usePaginator';
 import { getFavArray } from '../helpers/storageHelper';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/reducer';
+import FavouritesScreen from './FavouritesScreen';
 
 export default function HomeScreen() {
     const { characterList, loadNextPage } = usePaginator();
+    const { favouriteArray } = useSelector((state: RootState) => state.character);
 
     const styles = StyleSheet.create({
         container: {
             flex: 1,
             padding: 10,
-            backgroundColor: 'black',
-        },
-        title: {
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: 'black',
+            backgroundColor: '#DFDDDD',
         },
         body: {
             flex: 1,
-            justifyContent:'center',
-            alignItems:'center',
-        },
-        label: {
-            fontSize: 16,
-            color: 'white',
-            fontWeight: 'bold',
+            justifyContent: 'center',
+            alignItems: 'center',
         },
         spinner: {
             height: 150,
@@ -47,6 +41,9 @@ export default function HomeScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.body}>
+                {
+                    favouriteArray.length > 0 && <FavouritesScreen />
+                }
                 <FlatList
                     data={characterList}
                     renderItem={personaje => renderPersonajeCard(personaje.item)}

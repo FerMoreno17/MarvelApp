@@ -9,12 +9,12 @@ interface FavStarProp {
 
 export default function FavStar({ id }: FavStarProp) {
     const [active, setActive] = useState(false);
-    const { favouriteArray } = useSelector((state: RootState) => state.character);
+    const { starIdArray } = useSelector((state: RootState) => state.character);
     const size = 25;
 
     useEffect(() => {
-        setActive(favouriteArray.includes(id.toString()));
-    }, [favouriteArray]);
+        setActive(starIdArray.includes(id.toString()));
+    }, [starIdArray]);
 
     return (
         <>
