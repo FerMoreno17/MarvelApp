@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { MarvelApiCharacter } from '../models/characterModel';
+import { ComicResponse } from '../models/comicModel';
 
 const serverRequest = axios.create({
     baseURL: 'https://gateway.marvel.com:443/v1/public',
@@ -16,5 +17,11 @@ const serverRequest = axios.create({
 
 export async function getCharacters(cantidad: number) {
     const response = await serverRequest.get<MarvelApiCharacter>(`/characters?limit=${cantidad}`);
+    return response.data.data.results;
+}
+
+export async function getComics(id: number) {
+    const response = await serverRequest.get<ComicResponse>(`/characters/${id}/comics`);
+    console.log(JSON.stringify(response.data.data.results, null, 2));
     return response.data.data.results;
 }
