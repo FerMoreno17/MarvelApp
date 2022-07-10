@@ -29,7 +29,7 @@ export default function CharacterCard({ character }: IProp) {
         },
         image: {
             width: width * 0.4,
-            height: 150,
+            height: height * 0.19,
             alignSelf: 'center',
         },
         name: {
@@ -75,7 +75,7 @@ export default function CharacterCard({ character }: IProp) {
                 {character.name}
             </Text>
             <Pressable
-                onPress={() => storageFavourite(character.id)}
+                onPress={() => storageFavourite(character)}
                 style={[styles.starContainer, styles.shadow]}>
                 <FavStar id={character.id} />
             </Pressable>

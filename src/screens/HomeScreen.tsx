@@ -6,6 +6,7 @@ import { Character } from '../models/characterModel';
 import CharacterCard from '../components/characterCard.component';
 import usePaginator from '../hooks/usePaginator';
 import { getFavArray } from '../helpers/storageHelper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen() {
     const { characterList, loadNextPage } = usePaginator();
@@ -37,6 +38,7 @@ export default function HomeScreen() {
     });
 
     useEffect(() => {
+        AsyncStorage.clear();
         getFavArray();
     }, []);
 

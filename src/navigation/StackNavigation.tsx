@@ -2,10 +2,12 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import DetailScreen from '../screens/DetailScreen';
+import FavouritesScreen from '../screens/FavouritesScreen';
 
 type RootStackParamList = {
   HomeScreen: undefined;
   DetailScreen: undefined;
+  FavouritesScreen: undefined;
 };
 
 declare global {
@@ -32,6 +34,7 @@ export default function StackNavigation() {
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title:'MarvelApp'}} />
       <Stack.Screen name="DetailScreen" component={DetailScreen} options={{title:'Description'}}/>
+      <Stack.Screen name="FavouritesScreen" component={FavouritesScreen} options={{title:'Favourites'}}/>
     </Stack.Navigator>
   );
 }
