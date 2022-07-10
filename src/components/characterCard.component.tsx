@@ -35,7 +35,6 @@ export default function CharacterCard({ character }: IProp) {
         name: {
             color: 'black',
             fontWeight: 'bold',
-            fontSize: 20,
         },
         starContainer: {
             position: 'absolute',

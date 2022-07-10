@@ -24,7 +24,7 @@ export default function StackNavigation() {
       screenOptions={{
         headerTitleAlign: 'center',
         headerStyle: {
-          backgroundColor: '#B0130F',
+          backgroundColor: '#991411',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {

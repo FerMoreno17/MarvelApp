@@ -61,7 +61,7 @@ export default function DetailScreen() {
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 10,
-      marginBottom: 30
+      marginBottom: 30,
     },
     shadow: {
       shadowColor: 'black',

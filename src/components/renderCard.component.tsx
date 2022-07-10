@@ -10,7 +10,7 @@ interface RenderCardProp {
 export default function RenderCard({ available, name }: RenderCardProp) {
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: '#B0130F',
+            backgroundColor: '#991411',
             width:110,
             height:110,
             borderRadius: 100,

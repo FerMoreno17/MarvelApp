@@ -13,7 +13,6 @@ export default function FavStar({ id }: FavStarProp) {
     const size = 25;
 
     useEffect(() => {
-        console.log({ starIdArray });
         setActive(starIdArray.includes(id.toString()));
     }, [starIdArray]);
 
