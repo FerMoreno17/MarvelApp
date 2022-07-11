@@ -9,12 +9,12 @@ export default function Comics() {
 
     const styles = StyleSheet.create({
         container: {
-            flexDirection:'row',
+            flexDirection: 'row',
             flexWrap: 'wrap',
             display: 'flex',
             alignItems: 'center',
-            width:width * 0.9,
-            justifyContent:'center',
+            width: width * 0.9,
+            justifyContent: 'center',
         },
         imageContainer: {
             margin: 5,
@@ -29,11 +29,13 @@ export default function Comics() {
         const path = `${item.path}.${item.extension}`;
 
         return (
-            <View style={styles.imageContainer}>
+            <View
+                style={styles.imageContainer}
+                key={id}
+            >
                 <Image
                     style={styles.image}
                     source={{ uri: path }}
-                    key={id}
                 />
             </View>
         );
